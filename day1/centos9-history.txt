@@ -284,3 +284,46 @@ cp -rp lab4.sh lin2_Apr/day1/
 history
 history | awk '$1 > 636' | cut -c 8- 
 history | awk '$1 > 636' | cut -c 8- > lin2_Apr/day1/centos9-history.txt
+ls -l /lib/systemd/system/
+ls -l /lib/systemd/system/runlevel*.target
+systemctl get-default 
+init 3
+systemctl list-units
+systemctl list-units --type target
+systemctl list-units --type 
+systemctl list-units --type target --all
+systemctl set-default multi-user.target 
+systemctl isolate graphical.target 
+systemctl status doker
+yum remove docker docker-client docker-client-latest docker-common docker-latest docker-latest-logrotate docker-logrotate docker-engine
+yum install -y yum-utils
+yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+yum install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+systemctl ?
+systemctl enable docker --now 
+systemctl status docker
+docker run -d --name webserver -p 8080:80 nginx
+docker ps 
+docker ps -a
+docker rm webserver 
+docker ps -a
+docker run -d --name webserver -p 8080:80 nginx
+docker ps -a
+docker stop webserver 
+cp -rp /lib/systemd/system/sshd.service /etc/systemd/system/myweb.service 
+vi /etc/systemd/system/myweb.service
+which docker
+vi /etc/systemd/system/myweb.service
+cp /etc/systemd/system/myweb.service lin2_Apr/day1/
+systemctl daemon-reload 
+systemctl start myweb
+docker ps
+systemctl status myweb
+vi /etc/systemd/system/myweb.service
+systemctl enable myweb
+cd lin2_Apr/
+git status
+git add -m "Add day1 files"
+git add . ; git commit  -m "Add day1 files"
+git push
+history | awk '$1 > 636' | cut -c 8- > day1/centos9-history.txt
