@@ -1,0 +1,78 @@
+find /root -name anaconda-ks.cfg > std.wyjscie 2>std.error
+cat std.wyjscie 
+cat std.error
+find /root -name anaconda-ks.cfg 2>&1 wyjscie
+find /root -name anaconda-ks.cfg 2>&1 
+find /root -name anaconda-ks.cfg 2>&1 > wyjscie  
+vi wyjscie 
+find /root -name anaconda-ks.cfg > wyjscie 2>&1 
+cat wyjscie
+echo "To jest przykład" 
+sed -h
+man sed
+echo "To jest przykład" | sed '/jest/p'
+echo "To jest przykład" | sed '/jest/'
+echo "To jest przykład" | sed '/jest'
+echo "To jest przykład" | sed -n '/jest/p'
+sed -h
+man sed
+echo "To jest przykład" | awk '/jest/{print $0}'
+echo "To jest przykład" | awk '/Jest/{print $0}'
+vi plik.txt
+cat plik.txt
+sed -n '/sh/p' plik.txt 
+awk '/sh/{print $)}' plik.txt 
+awk '/sh/{print $0}' plik.txt 
+sed '/[mbdcr]ash/p' plik.txt 
+sed -n '/[mbdcr]ash/p' plik.txt 
+echo "To jest przykład" | sed -n '/^T/p'
+echo "To jest przykład" | sed -n '/^t/p'
+echo "To jest przykład" | sed -n '/^[Tt]/p'
+echo "To jest przykład" | sed -n '/[0-9]/p'
+echo "To jest przykład" | sed -n '/[0-9a-z]/p'
+echo "To jest przykład" | sed -n '/[0-9A-Z]/p'
+cat plik.txt 
+sed 's/foo/linux' plik.txt 
+sed 's/foo/linux/' plik.txt 
+sed 's/foo/linux/g' plik.txt 
+sed 's/foo/linux/gI' plik.txt 
+cat plik.txt 
+sed 's//bin/bash//bin/sh/' plik.txt 
+sed 's|/bin/bash|/bin/sh|' plik.txt 
+sed 's?/bin/bash?/bin/sh?' plik.txt 
+sed 's/\b[0-9]\{3\}\b/number3cyfrowy/' plik.txt 
+sed 's/\b[0-9]\{3\}\b/cyfra-&/' plik.txt 
+cat plik.txt 
+sed -i 's/\b[0-9]\{3\}\b/cyfra-&/' plik.txt 
+cat plik.txt 
+grep Foo plik.txt 
+grep -i Foo plik.txt 
+alias
+which grep
+ls -la /usr/bin/grep
+cat plik.txt 
+grep -e Centos -e foo plik.txt 
+grep -v foo
+grep -v foo plik.txt 
+grep -iv centos plik.txt 
+grep -h
+grep --help
+echo "tt" | awk '/to?t/{print $0}'
+echo "tot" | awk '/to?t/{print $0}'
+echo "toot" | awk '/to?t/{print $0}'
+echo "toot" | awk '/to+t/{print $0}'
+man sed
+echo "tt" | sed -r -n '/to?t/p'
+echo "toot" | sed -r -n '/to?t/p'
+echo "tot" | sed -r -n '/to?t/p'
+echo "tt" | awk '/to{1}t/{print $0}'
+echo "tot" | awk '/to{1}t/{print $0}'
+echo "toot" | awk '/to{1}t/{print $0}'
+echo "toot" | awk '/to{2}t/{print $0}'
+echo "toot" | sed -E '/to{2}t/p'
+echo "toot" | sed -En '/to{2}t/p'
+less /var/log/messages
+history
+history | awk '$1 > 210'
+history | awk '$1 > 210' | cut -c 8-
+history | awk '$1 > 210' | cut -c 8- > /tmp/student-history.txt
