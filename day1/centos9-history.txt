@@ -321,9 +321,3 @@ docker ps
 systemctl status myweb
 vi /etc/systemd/system/myweb.service
 systemctl enable myweb
-cd lin2_Apr/
-git status
-git add -m "Add day1 files"
-git add . ; git commit  -m "Add day1 files"
-git push
-history | awk '$1 > 636' | cut -c 8- > day1/centos9-history.txt
