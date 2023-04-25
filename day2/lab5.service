@@ -1,0 +1,10 @@
+[Unit]
+Description=Test script for lab5
+After=network.target 
+
+[Service]
+ExecStart=/usr/bin/lab5.sh -o start
+ExecStop=/usr/bin/lab5.sh -o stop
+
+[Install]
+WantedBy=default.target
