@@ -1,0 +1,540 @@
+./lab5.sh -o start
+cp -rp lab5.sh /usr/bin/
+./lab5.sh -o start
+ps -ef | grep lab5
+cat /var/run/lab5.pid
+kmill 3722
+kill 3722
+rm /var/run/lab5.pid
+./lab5.sh -o start
+./lab5.sh -o status
+./lab5.sh -o stop
+vi lab5.sh
+less /tmp/my-service.log
+vi lab5.sh
+./lab5.sh -x
+./lab5.sh
+./lab5.sh status
+./lab5.sh -o status
+./lab5.sh -o stop
+vi lab5.sh
+./lab5.sh -o stop
+./lab5.sh -o start
+vi lab5.sh
+cp -rp lab5.sh /usr/bin/
+cp -rp /lib/systemd/system/sshd.service /etc/systemd/system/lab5
+mv /etc/systemd/system/lab5 /etc/systemd/system/lab5.service
+vi /etc/systemd/system/lab5.service
+systemctl --help
+man systemctl
+vi /etc/systemd/system/lab5.service
+systemctl daemon-reload
+systemctl start lab5.service
+systemctl status lab5
+tail -f /tmp/my-service.log
+systemctl get-default
+systemctl stop lab5
+systemctl status lab5
+systemctl start lab5
+systemctl status lab5
+cat /var/run/lab5.pid
+systemctl status lab5
+mkdir lin2_Apr/day2; cp -rp lab5.sh lin2_Apr/day2/
+ls -la lin2_Apr/day2/
+cp -rp /etc/systemd/system/lab5.service lin2_Apr/day2/
+vi test.sh
+cd /etc/systemd/system/
+cd
+crontab -l
+crontab -e
+date
+/tmp/te
+crontab -e
+which echo
+crontab -e
+/usr/bin/echo wt > /tmp/test2
+less /tmp/test2
+rm /tmp/test2
+crontab -l
+tail -f /tmp/test
+ls -la /tmp/test
+crontab -u student -e
+crontab -u student -l
+date
+cat /tmp/data
+date
+cat /tmp/data
+crontab -u student -e
+cat /tmp/data
+ls -la /tmp/data
+echo "hello" > /tmp/hello | at 10:15
+atq
+at -l
+atrm 10
+at -l
+at -c 11
+at -c 11 | grep hello -i
+cat /tmp/hello
+echo "hello" > /tmp/hello | at now + 5 minutes
+echo "hello" > /tmp/hello | at now + 1 week
+echo "hello" > /tmp/hello | at 13:00 tomorrow
+atq
+atrm 14
+atq
+history
+history | awk '$1 > 976' | cut -c 8- > day2/centos9-history.txt
+history | awk '$1 > 976' | cut -c 8- > lin2_Apr/day2/centos9-history.txt
+reboot
+cd lin2_Apr/
+git status
+git add .
+git commit -m "Add day2 content"
+gitpush
+git push
+git pull
+git push
+git pull
+git config pull.rebase false
+git pull
+git push
+vi lab6.sh
+systemctl restart sshd | at 3:00 PM 04/29/2023
+systemctl restart sshd | at 15:00 04/30/2023
+atq
+cd /
+ls -la
+cd /
+ls -li
+cd
+la -lai
+ls -lai
+cat /proc/filesystems
+ls
+vi plik.txt
+ls -la
+ls -lai
+ln -s symlink plik.txt
+ln -s plik.txt symlink
+ls -lai
+vi symlink
+ln plik.txt hardlink1
+ls -lai
+vi plik.txt
+vi hardlink1
+vi plik.txt
+rm plik.txt
+ls -lai
+vi hardlink1
+vi symlink
+ls -lai
+ln plik.txt hardlink2
+ln plik.txt hardlink3
+ls -lai
+find . -inum 17266914
+find . -inum 18165489
+cat /proc/partitions
+./connect.sh
+cat /proc/partitions
+cd /sys/class/scsi_host/
+ls
+for i in `seq 0 2`; do echo "- - -" > /sys/class/scsi_host/host$i/scan; done
+cat /proc/partitions
+df -h
+man fd
+man df
+df -hT
+lsblk
+blkid
+lshw
+lshw -class disk -short
+cd
+fdisk /dev/sdb
+cat /proc/partitions
+gdisk /dev/sdb
+cat /proc/partitions
+gdisk /dev/sdb
+cat /proc/partitions
+gdisk /dev/sdb
+wipefs --help
+wipefs -a /dev/sdb
+gdisk /dev/sdb
+cay /proc/partitions
+cat /proc/partitions
+mkfs.ext4 /dev/sdb1
+mkdir /data
+mount /dev/sdb1 /data
+df -hT
+gdisk /dev/sdb
+mkfs.xfs /dev/sdb3
+cat /proc/partitions
+gdisk /dev/sdb
+partprobe
+cat /proc/partitions
+mkfs.xfs /dev/sdb3
+mkdir /data2
+mount /dev/sdb3 /data2
+df 0hT
+df -hT
+cd /data
+touch plik1
+mkdir kat1
+cd ../data2
+mkdir kat1
+touch plik1
+cd
+mount -o remount,ro /data
+cd /data
+touch plik2
+cd
+mount -o remount,rw /data
+mount
+df -hT
+vi /etc/fstab
+man fstab
+vi /etc/fstab
+cat /proc/mounts
+history
+
+df h
+df -h
+rm /etc/systemd/system/lab5.service 
+systemctl daemon-reload 
+reboot
+df -h
+vi /etc/fstab 
+blkid
+blkid | grep sdb | grep "Linux filesystem" 
+blkid | grep sdb | grep "Linux filesystem" | awk '{print $2}'
+blkid | grep sdb | grep "Linux filesystem" | awk '{print $2}' >> /etc/fstab 
+vi /etc/fstab 
+df -h
+mount -a
+df -h
+umount /data
+umount /data2
+df -h
+vi /etc/fstab 
+mount -a
+reboot
+journalctl -xb
+df -h
+vi /etc/fstab 
+blkid
+mount
+mount -a
+reboot
+vi /etc/fstab 
+df -hT
+vi /etc/fstab 
+blkid
+vi /etc/fstab 
+blkid | grep sdb | grep "Linux filesystem" | awk '{print $2}'
+blkid
+vi /etc/fstab 
+ 
+df -hT
+vi /etc/fstab 
+ reboot
+passwd 
+vi /etc/fstab 
+df -hT
+blkid /dev/sdb1
+blkid /dev/sdb3
+vi /etc/fstab 
+mount -a
+df -hT
+e2label /dev/sdb1 DATA
+blkid  /dev/sdb1
+xfs_admin -L DATA2 /dev/sdb3
+umount /data2
+xfs_admin -L DATA2 /dev/sdb3
+mount -a
+blkid /dev/sdb[1,3]
+mkdir -p /tmp/{test,dev}
+mkdir -p /tmp/{prod,dev}
+vi /etc/fstab 
+umount /data
+umount /data2 
+df -hT
+mount -a
+df -hT
+lsblk
+mkdir /part1
+blkid
+i /etc/fstab 
+vi /etc/fstab
+mount -a
+umount /data
+umount /data2
+mount -a
+df -hT
+mount | grep sdb1
+cd /part
+cd /part1
+touch plik
+mkswap /dev/sdb2 -L swap-extra
+vi /etc/fstab 
+mount -o remount,rw /part1
+mount | grep sdb1
+touch plik1
+lsblk
+mount -a
+swapon -a
+swapon -s
+lsblk
+free -m
+cd
+dd -h
+man dd
+dd if=/dev/urandom of=/part1/swapfile bs=1024M count=1024
+ls -la /part1/
+rm /part1/swapfile
+dd if=/dev/urandom of=/part1/swapfile bs=100M cout=1
+dd if=/dev/urandom of=/part1/swapfile bs=100M count=1
+ls -lah /part1/
+mkswap /part1/swapfile 
+swapon /part1/swapfile
+swapon -s
+dd if=/dev/zero of=/zerofile bs=100M count=1
+dd if=/dev/null of=/nullfile bs=100M count=1
+ls -lah /nullfile
+ls -lah /zerofile
+history
+history | awk '$1 > 976' | cut -c 8- > lin2_Apr/day2/centos9-history.txt
+cd lin2_Apr/
+git status
+git add .
+git commit -m "Adding day2 files"
+git push
+git pull
+git push
+cd
+df -hT
+cd /part1
+ls
+umount /part1
+pwd
+cd
+umount /part1
+swapon -s
+swapoff /part1/swapfile
+swapon -s
+umount /part1
+vi /etc/fstab 
+gdisk /dev/sdb
+./connect.sh 
+df -h
+lsblk
+ree -m
+free -m
+pvs
+vgs
+lvs
+gdisk /dev/sdb
+pvcreate /dev/sdb
+wipefs -a /dev/sdb
+fg -h
+df -h
+swapon -s
+swapoff /dev/sdb2
+pvcreate /dev/sdb
+wipefs -a /dev/sdb
+pvcreate /dev/sdb
+pvs
+vgcreate 
+vgcreate vg1 /dev/sdb
+vgs
+lvcreate -L 2G -n lv1 vg1
+lvs
+vi /etc/fstab 
+swapon -s
+swapoff /dev/dm-1 
+swapon -s
+swapon -a
+swapon -s
+vi /etc/fstab 
+mount -a
+df -h
+vi /etc/fstab 
+lvs
+mkfs.xfs /dev/mapper/
+mkfs.xfs /dev/vg1/lv1 
+mkdir /lvm1
+mount /dev/mapper/vg1-lv1 /lvm1/
+cd /lvm1/\
+cd /lvm1/
+touch plik1
+df -h
+dd if=/dev/urandom of=/lvm1/plik1 bs=1024 count=18
+dd if=/dev/urandom of=/lvm1/plik1 bs=1024M count=18
+df -h
+lvs
+vgs
+lvextend -L +1G /dev/mapper/vg1-lv1 
+df -h
+xfs_growfs /dev/mapper/vg1-lv1
+df -h
+lvextend -L +1G /dev/mapper/vg1-lv1 
+lvextend -l 255 /dev/mapper/vg1-lv1 
+lvextend -l +255 /dev/mapper/vg1-lv1 
+xfs_growfs /dev/mapper/vg1-lv1
+df -h
+dd if=/dev/urandom of=/lvm1/plik2 bs=1024M count=18
+df -h
+lvs
+vgs
+pvs
+cat /proc/partitions 
+echo "- - -" > /sys/class/scsi_host/host2/scan 
+cat /proc/partitions 
+pvcreate /dev/sdc
+pvs
+vgextend 
+vgextend vg1 /dev/sdc
+vgs
+lvextend -l +100%FREE /dev/mapper/vg1-lv1
+df -h
+xfs_growfs /dev/mapper/vg1-lv1
+df -h
+vgdisplay vg1
+vgcreate -h
+resize2fs /dev/vg1/lv1 
+df -h
+df -hT
+cd /lvm1/
+ls
+touch plik3
+mkdir testdir
+mkdir testdir2
+ls -la
+cd
+xfsdump -f /tmp/lvm1.dump /lvm1 
+ls -lah /tmp/lvm1.dump 
+umount /lvm1
+lvreduce -L 5G /dev/vg1/lv1
+lvs
+lvremove /dev/vg1/lv1
+lvcreate -L 5G /dev/vg1/lv1
+lvcreate -L 5G -n lv1 /dev/vg1/lv1
+lvcreate -L 5G -n lv1 vg1
+mkfs.xfs /dev/vg1/lv1 
+lvs
+vgs
+mount /dev/mapper/vg1-lv1 /lvm1/
+cd /lvm1/
+ls -la
+xfsrestore -f /tmp/lvm1.dump /lvm1
+ls -la
+df -hT
+vgs
+cd
+umount /lv1
+umount /lvm1 
+gdisk /dev/sdb
+lvs
+lvremove /dev/vg1/lv1 
+vgremove vg1
+pvremove /dev/sdb
+wipefs -a /dev/sdb
+gdisk /dev/sdb
+cat /proc/partitions 
+pvcreate /dev/sdb[1,2]
+vgcreate vg1 /dev/sdb[1,2]
+vgs
+lvcreate -L 50M -n lv-data vg1
+lvremove /dev/vg1/lv1
+lvremove /dev/vg1/lv-data 
+vgremove vg1
+vgcreate -s 1M vg1 /dev/sdb[1,2]
+vgdisplay 
+lvcreate -L 50M -n lv-data vg1
+lvs
+lvcreate -L 100M -n lv-mirror vg1
+mkfs.ext4 /dev/vg1/lv-mirror 
+mkfs.xfs /dev/vg1/lv-data 
+mkdir /lv-mirror /lv-data
+mount /dev/vg1/lv-mirror /lv-mirror
+mount /dev/mapper/vg1-lv--data /lv-data
+df -hT
+dd if=/dev/urandom of=/lv-mirror/testfile1 bs=20M count=1
+dd if=/dev/urandom of=/lv-mirror/testfile2 bs=20M count=1
+df -hT
+lvcreate -L 50M -s -n lv-mirror-snap /dev/vg1/lv-mirror
+lvs
+dd if=/dev/urandom of=/lv-mirror/testfile3 bs=20M count=1
+lvs
+cd /lv-mirror/
+ls
+ls -la
+mkdir test
+touch plik
+touch pli1
+touch pli3
+touch pli4
+touch pli46
+lvs
+ls -la
+cd
+umount /lv-mirror 
+lvconvert --merge /dev/vg1/lv-mirror-snap 
+mount /dev/vg1/lv-mirror-snap /lv-mirror/
+mount /dev/vg1/lv-mirror /lv-mirror/
+cd /lv-mirror/
+ls -la
+lvs
+history
+cd
+vi lin2_Apr/day2/centos9-history.txt 
+history | awk '$1 > 472' | cut -c 8- >> lin2_Apr/day2/centos9-history.txt
+modprobe cryptsetup
+lsmod | grep crypt
+modprobe dm_crypt
+lsmod | grep crypt
+dnf install cryptsetup
+rpm -qa | grep crypt
+cryptsetup --ver
+cryptsetup --version
+lvs
+cryptsetup luksFormat /dev/vg1/lv-data 
+umount /lv-data 
+cryptsetup luksFormat /dev/vg1/lv-data 
+cryptsetup luksOpen /dev/vg1/lv-data secure
+ls -la /dev/mapper
+mkfs.ext4 /dev/secure
+mkfs.ext4 /dev/mapper/secure 
+cd /dev/mapper
+ls
+ls -la
+cd secure
+cd ..
+ls -la
+mkdir /luks
+mount /dev/mapper/secure /luks
+cd /luks/
+ls -la
+touch plik1
+mkdir testkat
+cd
+umount /luks
+cryptsetup luksClose secure
+cat /proc/partitions o
+cat /proc/partitions 
+cryptsetup luksFormat /dev/sdc
+cryptsetup luksOpen /dev/sdc secure
+mkfs.xfs /dev/mapper/secure 
+mount /dev/mapper/secure /luks/
+df -hT
+umount /luks
+cryptsetup luksClose secure
+cryptsetup luksOpen /dev/sdc secure
+mount /dev/mapper/secure /luks/
+cd luks
+cd /luks
+touch plik1
+touch pli2secure
+ls -la
+cd
+vi /etc/crypttab 
+vi /etc/fstab 
+history
+history | awk '$1 > 765' | cut -c 8- >> lin2_Apr/day2/centos9-history.txt

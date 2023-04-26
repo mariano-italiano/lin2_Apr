@@ -1,0 +1,487 @@
+dnf install mdadm
+mdadm -h
+man mdadm
+cat /proc/partitions 
+mdadm -E /dev/sd[b,c,d]
+mdadm --create /dev/md0 --raid-devices=3 --level=0 /dev/sd[b,c,d]
+mdadm -D /dev/md0
+cat /proc/partitions 
+echo "- - -" > /sys/class/scsi_host/host2/scan 
+cat /proc/partitions 
+mdadm -D /dev/md0
+mdadm --manage --add /dev/md0 /dev/sde
+lsblk
+mdadm --add /dev/md0 /dev/sde
+man mdadm
+mdadm -Gv /dev/md0 -l 0 -n 3 -a /dev/sde
+mdadm -Gv /dev/md0 -l 0 -n 4 -a /dev/sde
+mdadm -D /dev/md0
+mdadm --manage
+mdadm --manage /dev/md0
+mdadm --manage /dev/md0 
+mdadm --manage -h
+mdadm --manage --fail /dev/md0 /dev/sde
+mdadm -D /dev/md0
+mdadm --stop /dev/md0
+mdadm --remove -h
+mdadm --remove /dev/sde
+mdadm --remove /dev/md0 /dev/sde
+mdadm --start /dev/md0
+cat /proc/partitions 
+mdadm --create /dev/md0 --raid-devices=3 --level=0 /dev/sd[b,c,d]
+mdadm --run /dev/md
+mdadm --create /dev/md0 --raid-devices=3 --level=0 /dev/sd[b,c,d]
+mdadm -D /dev/md0
+mdadm --manage --add -h
+mdadm --manage --add /dev/md0 /dev/sde
+mdadm --manage --add /dev/sde 
+mdadm --manage --add /dev/sde  /dev/md0
+mdadm --manage --add /dev/md0
+mdadm -D /dev/md0
+mdadm --manage --add /dev/md0 /dev/sde
+mdadm --manage --add /dev/md0 -h
+mdadm --grow /dev/md0 -n 4
+mdadm --grow /dev/md0 -n 4 -a /dev/sde
+mdadm -D /dev/md0
+mdadm --stop /dev/md0
+md
+mdadm --create /dev/md5 --raid-devices=3 --level=5 /dev/sd[b,c,d]
+mdad -D /dev/md0
+mdadm -D /dev/md0
+mdadm -D /dev/md5
+mdadm --manage -add /dev/md5 /dev/sde
+mdadm --manage -aadd /dev/md5 /dev/sde
+mdadm --manage --add /dev/md5 /dev/sde
+mdadm -D /dev/md5
+mdadm -h
+mdadm -D /dev/md5
+mdadm --manage --fail /dev/md5 /dev/sdb
+mdadm -D /dev/md5
+mkfs.xfs /dev/md5
+mount /dev/md5 /data
+cd .data
+cd /data
+ls -la
+df -hT
+mdadm -D /dev/md5
+mdadm --detail --scan --verbose 
+mdadm --detail --scan --verbose >> /etc/mdadm.conf
+vi /etc/mdadm.conf
+cat /proc/mdstat 
+cd
+umount /data
+mdadm --stop /dev/md5
+mdadm --remove /dev/md5
+mdadm --zero-superblock /dev/sd[b,c,d,e]
+cat /proc/mdstat 
+cat /etc/passwd
+ls -la /etc/shadow
+vi /etc/shadow
+id testuser
+vi /etc/shadow
+passwd testuser
+vi /etc/shadow
+vi /etc/passwd
+vi /etc/login.defs 
+useradd testuser2
+id
+id testuder2
+id testuser2
+userdel testuser2
+useradd testuser2
+id testuser2
+userdel -r testuser2
+useradd testuser2
+id testuser2
+useradd test
+id test
+userdel test
+useradd test
+id test
+cat /etc/passwd
+vi /etc/default/useradd 
+ls -la /home/test
+ls -la /etc/skel
+mkdir /etc/custom-skel
+vi /etc/custom-skel
+cd /etc/custom-skel
+ln -s app1 /tmp
+ls -la
+ln -s
+ln 
+ln -h
+man ln
+ln -s /tmp app1
+ls -la
+vi skrypt.sh
+chmod +x skrypt.sh
+ls -la
+vi /etc/default/useradd 
+cd
+useradd asia
+cd /home/asia/
+ls -la
+./skrypt.sh 
+vi /etc/default/useradd 
+cd
+dnf install epel-release -y
+dnf install snapd –y
+dnf install snapd 
+systemtl enable --now snapd.socket
+systemctl enable --now snapd.socket
+ln -s /var/lib/snapd/snap /snap
+snap install john-the-ripper
+history
+mkdir lin2_Apr/day3
+history | awk '$1 > 849' | cut -c 8- >> lin2_Apr/day3/centos9-history.txt
+cat /etc/shadow
+cp /etc/shadow pass
+vi pass
+cat pass
+john pass
+id testuser
+id
+dnf install finger
+useradd -h
+vi /etc/group
+id asia
+vi /etc/group
+id asia
+vi /etc/group
+id test
+vi /etc/group
+id test
+vi /etc/group
+groupadd -h
+groupadd -g 2000 development
+groupadd -g 2001 production
+useradd -g 2000 -G production -d /tmp -s /bin/sh -c "Jan Kowalski REQ_NO#4" jkowalski
+userdell -r jkowalski
+userdel -r jkowalski
+useradd -g 2000 -G production -d /tmp/jkowalski -s /bin/sh -c "Jan Kowalski REQ_NO#4" jkowalski
+cat /etc/passwd
+ls -la /tmp/jkowalski
+su jkowalski
+id jkowalski
+usermod -G student jkowalski
+id jkowalski
+usermod -aG student asia
+id jkowalski
+cat /etc/group
+usermod -aG asia jkowalski
+id jkowalski
+id jkowalski
+usermod -G production jkowalski
+id jkowalski
+useradd -h
+usermod -h
+id jkowalski
+usermod -aG student,asia jkowalski
+id jkowalski
+usermod -u 2000 jkowalski
+id jkowalski
+groupmod -g 3000 development
+id jkowalski
+userdel -h
+userdel -r jkowalski
+ls -la /tmp/
+vi /etc/profile.d/
+vi /etc/profile
+ls -la
+less .bash_history
+vi ..bash_logout
+vi .bash_logout
+vi .bashrc
+vi /home/student/.bashrc
+su - student
+chage -l student
+tail /etc/shadow
+chage -h
+chage -M 10 student
+chage -l /etc/shadow
+chage -l student
+chage -M 6 student
+su - student
+chage -M 10 student
+chage -h
+chage -E 2023-04-27 student
+chage -l student
+chage -M 99999 -E -1 student
+chage -l student
+chage -d 0 student
+chage -l student
+touch plik5
+vi pass
+john pass
+vi history_file
+history
+vi lin2_Apr/day3/centos9-history.txt
+chage -l student
+su - student
+dnf install nfs-server
+sudo dnf install nfs-server
+su - asia
+dnf install nfs-server
+sudo dnf install nfs-server
+passwd asia
+su - asia
+sudo dnf install nfs-server
+vi /etc/sudoers
+which dnf
+vi /etc/sudoers
+which chage
+vi /etc/sudoers
+su - asia
+sudo dnf install nfs-server
+sudo chage -l root
+vi /etc/sudoers
+visudo
+vi /etc/sudo
+vi /etc/sudo
+vi /etc/sudo
+cat /etc/passwd
+id testuser
+id test
+id asia
+useradd -G development kasia
+passwd kasia
+id kasia
+vi /etc/sudo
+vi /etc/sudoers.d/
+vi /etc/sudoers.d/development
+visudo
+vi /etc/sudoers.d/development
+su - kasia
+sudo dnf install nfs-server
+sudo ping wp.pl
+vi /etc/sudoers.d/development
+su - kasia
+sudo ping wp.pl
+sudo dnf install nfs-server
+id
+vi /etc/sudoers.d/development
+visudo
+su - kasia
+sudo ping wp.pl
+sudo dnf install nfs-server
+visudo
+useradd -c /bin/ksh testuser
+useradd -c /bin/ksh testuser1
+id testuser1
+cat /etc/passwd
+dnf install ksh
+usermod -c /bin/ksh testuser1
+cat /etc/passwd
+usermod -s /bin/ksh testuser1
+cat /etc/passwd
+su - testuser1
+passwd testuser1
+cat /etc/shadow
+chage -E "01/05/2023" testuser1
+chage -l testuser
+chage -E "2023-05-01" testuser1
+chage -l testuser
+chage -l testuser1
+chage -d 0testuser1
+chage -d 0 testuser1
+sha
+sha
+echo "mojesilnehaslo " | sha512sum
+echo "mojesilnehaslo" | sha512sum
+cat /etc/shadow | tail -1
+openssl passwd 6 salt xyz mojesilnehaslo
+openssl passwd -6 -salt xyz mojesilnehaslo
+vi pass
+john pass
+$6$xyz$B9R1WwMggS8QU7bkx9WEZwmKuQqmAbWZhkFTKgi9w6RkbxsW3iZ0fm3yPL7ppkxJh3WN93WAID.WNMGYAbl3T/^C
+ls -la
+chmod -h
+man chmod
+touch plik1 plik2 plik3
+ls -la plik*
+rm plik.txt
+ls -la plik*
+chmod 644 ^C
+vi /etc/profile
+vi /etc/login.defs
+touch plik4
+ls -la
+ls -la plik
+ls -la plik*
+ls -la plik*
+vi /etc/login.defs
+umask
+umask 0244
+touch plik6
+ls -la plik*
+umask 0022
+which ping
+ls -la `which ping`
+ls -la /bin/pin
+ls -la /bin/ping
+which passwd
+ls -la /usr/bin/passwd
+ls -la plik*
+chmod 4644 plik1
+ls -la plik1
+chmod 744 plik2
+ls -la plik1
+ls -la plik*
+chmod 4744 plik2
+ls -la plik2
+mkdir /projekt
+chgrp development /projekt/
+ls -la /projekt/
+ls -la /
+chmod 770 /projekt/
+ls -la /
+id asia
+id testuser
+usermod -aG development asia
+id asia
+id testuser
+id testuser1
+usermod -aG development testuser1
+id testuser1
+chmod 2770 /projekt/
+ls -la /
+su - asia
+cd /projekt
+ls -la
+touch plik1
+ls -la
+id
+cd
+touch plik1
+ls -la plik1
+su - testuser
+cd /projekt/
+su - testuser1
+cd /tmp
+ls -la /
+su - testuser1
+su - asia
+touch plikAsia
+ls -la plik*
+rm plikTestuser1
+cat plikAsia
+vi plikAsia
+cat plikAsia
+rm plikAsia
+touchp plikAsia
+touch plikAsia
+vi plikTestuser1
+getfacl plik1
+man getfacl 
+getfacl -c plik1
+vi file1
+getfacl -c file1
+ls -al file1
+setfacl -m u:student:w file1
+ls -la file1
+getfacl file1 
+getfacl -c file1 
+su - student
+mv file1 /tmp/
+ls -la /tmp/file1 
+getfacl -c /tmp/file1
+su - student
+getfacl -c /tmp/file1
+setfacl -m u:student:rw file1
+setfacl -m u:student:rw /tmp/file1
+su - student
+setfacl -m u:student:rw,m:r /tmp/file1
+getfacl /tmp/file1
+su - student
+setfacl -m m:rw /tmp/file1
+su - student
+groupadd ksiegowosc
+groupadd finanse
+mkdir /tmp/faktury
+chgrp ksiegowosc /tmp/faktury
+useradd ksiegowy
+useradd finansista -g finanse
+usermod -g ksiegowosc ksiegowy
+id ksiegowy
+id finansista 
+ls -la /tmp/faktury/
+ls -la /tmp
+chmod 770 /tmp/faktury/
+ls -la /tmp
+su - student
+su - ksiegowy 
+su - finansista 
+setfacl -m g:finanse:rx /tmp/faktury/
+su - finansista 
+getfacl -c /tmp/faktury/
+setfacl -x g:finanse /tmp/faktury/
+su - finansista 
+setfacl -m d:g:finanse:rx /tmp/faktury/
+getfacl -c /tmp/faktury/
+getfacl -c /tmp/faktury/tajne/
+su - finansista 
+setfacl -m d:u:finansista:rwx /tmp/faktury/
+su - finansista 
+setfacl -m u:finansista:rwx /tmp/faktury/
+su - finansista 
+su - ksiegowy 
+./connect.sh 
+passwd student
+vi /etc/ssh/sshd.deny
+vi /etc/pam.d/sshd
+passwd asia
+vi /etc/ssh/sshd.deny
+vi /etc/pam.d/sshd
+vi /etc/security/time.conf 
+man pam
+man PAM
+vi /etc/pam.d/system-auth 
+vi /etc/pam.d/password-auth 
+cd /var/lo
+cd /var/log
+ls -la
+touch failed_logins
+vi /etc/pam.d/system-auth 
+dnf install pam_tally2
+dnf install pam_tally
+find / -name pam_tally2*
+vi /etc/ssh/sshd.deny
+vi /etc/pam.d/system-auth 
+vi /etc/pam.d/password-auth 
+vi /etc/pam.d/system-auth 
+vi /etc/pam.d/password-auth 
+pam_tally2 -u student
+find / -name pam_faillock.so
+vi /etc/pam.d/system-auth 
+vi /etc/pam.d/passww
+vi /etc/pam.d/password-auth 
+ls -la /var/log/
+tail -f failed_logins
+vi /etc/pam.d/password-auth 
+vi /etc/pam.d/system-auth 
+authconfig
+authconfig  --enablefaillock --faillockargs="deny=3 unlock_time=60 even_deny_root" --update
+vi /etc/pam.d/password-auth 
+vi /etc/pam.d/system-auth 
+ls -la
+less audit/
+less audit/audit.log 
+less secure
+tail -f secure
+watch date
+vi /etc/pam.d/password-auth 
+vi /etc/pam.d/system-auth 
+faillock 
+faillock -u student
+faillock --user student
+faillock --user student --reset
+faillock --user student
+ls -la /var/run/faillock
+ls -la /var/run/faillock/student 
+vi /var/run/faillock/student
+rm /var/run/faillock/student 
+less secure
+history
+history | awk '$1 > 1012' | cut -c 8- >> lin2_Apr/day3/centos9-history.txt
+cd
+history | awk '$1 > 1012' | cut -c 8- >> lin2_Apr/day3/centos9-history.txt
