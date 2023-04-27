@@ -1,0 +1,82 @@
+vi domaintree.ldif
+ldapadd -Y EXTERNAL -H ldapi:/// -f domaintree.ldif 
+vi domaintree.ldif
+ldapadd -Y EXTERNAL -H ldapi:/// -f domaintree.ldif 
+systemctl status
+systemctl status slapd
+vi domaintree.ldif
+ldapadd -Y EXTERNAL -H ldapi:/// -f  domaintree.ldif 
+ldapadd -h
+vi domaintree.ldif
+ls
+vi ldapdomain.ldif 
+ladpadd -x -D "cn=Manager,dc=lab,dc=local" -W -f domaintree.ldif 
+ldapadd -x -D "cn=Manager,dc=lab,dc=local" -W -f domaintree.ldif 
+vi domaintree.ldif
+ldapadd -x -D "cn=Manager,dc=lab,dc=local" -W -f domaintree.ldif 
+vi domaintree.ldif
+ldapsearch -x -b dc=lab,dc=local -H ldap://localhost
+ldapsearch -x -b ou=Users,dc=lab,dc=local -H ldap://localhost
+ldapsearch -x -b ou=Groups,dc=lab,dc=local -H ldap://localhost
+vi domaintree.ldif
+ldapadd -x -D "cn=Manager,dc=lab,dc=local" -W -f domaintree.ldif 
+vi domaintree.ldif
+ldapadd -x -D "cn=Manager,dc=lab,dc=local" -W -f domaintree.ldif 
+vi domaintree.ldif
+ldapsearch -x -b ou=Groups,dc=lab,dc=local -H ldap://localhost
+ldapsearch -x -b ou=Users,dc=lab,dc=local -H ldap://localhost
+vi groups.ldif
+ldapadd -x -D "cn=Manager,dc=lab,dc=local" -W -f groups.ldif 
+vi user.ldif
+slappasswd
+vi user.ldif
+ldapadd -x -D "cn=Manager,dc=lab,dc=local" -W -f user.ldif 
+wget wget http://mirror.centos.org/altarch/7/os/aarch64/Packages/migrationtools-47-15.el7.noarch.rpm
+ls -la
+rpm -ivh migrationtools-47-15.el7.noarch.rpm 
+dnf install perl -y
+rpm -ivh migrationtools-47-15.el7.noarch.rpm 
+cd /usr/share/
+ls
+cd migrationtools/
+ls
+cat /etc/passwd
+grep student /etc/passwd 
+grep student /etc/passwd > ldap_passwd
+grep student /etc/group > ldap_group
+grep student /etc/group 
+ls
+./migrate_passwd.pl ldap_passwd passwd.ldif
+vi passwd.ldif
+./migrate_group.pl ldap_group group.ldif
+vi group.ldif
+ldapadd -x -D "cn=Manager,dc=lab,dc=local" -W -f group.ldif 
+ldapadd -x -D "cn=Manager,dc=lab,dc=local" -W -f passwd.ldif 
+cd
+ldapsearch -h
+ldapsearch -x -b dc=lab,dc=local -H ldap://localhost
+ldapsearch -x -b dc=lab,dc=local -H ldap://localhost | grep dn
+ldapsearch -x -b ou=Groups,dc=lab,dc=local -H ldap://localhost 
+ldapsearch -x -b dc=lab,dc=local -H ldap://localhost -D "cn=Manager,dc=lab,dc=local" -W "objectClass=posixGroup" dn cn gidNumber
+ldapsearch -x -b dc=lab,dc=local -H ldap://localhost -D "cn=Manager,dc=lab,dc=local" -W "objectClass=account" cn homeDirectory
+ldapsearch -x -b dc=lab,dc=local -H ldap://localhost -D "cn=Manager,dc=lab,dc=local" -W "objectClass=account" 
+ldapsearch -x -b dc=lab,dc=local -H ldap://localhost -D "cn=Manager,dc=lab,dc=local" -W "uid=a*" 
+ldapsearch -x -b dc=lab,dc=local -H ldap://localhost -D "cn=Manager,dc=lab,dc=local" -W "uid=st*" 
+ldapsearch -x -b dc=lab,dc=local -H ldap://localhost -D "cn=Manager,dc=lab,dc=local" -W "cn=s*" 
+ldapsearch -x -b dc=lab,dc=local -H ldap://localhost -D "cn=Manager,dc=lab,dc=local" -W "(&(cn=s*)(objectClass=account))" 
+ldapsearch -x -b dc=lab,dc=local -H ldap://localhost -D "cn=Manager,dc=lab,dc=local" -W "(&(cn=s*)(objectClass=account)(loginShell=/bin/sh)" 
+ldapsearch -x -b dc=lab,dc=local -H ldap://localhost -D "cn=Manager,dc=lab,dc=local" -W "(&(cn=s*)(objectClass=account)(gidNumber=1001)" 
+ldapsearch -x -b dc=lab,dc=local -H ldap://localhost -D "cn=Manager,dc=lab,dc=local" -W "(|(cn=s*)(objectClass=account))" 
+ldapsearch -x -b dc=lab,dc=local -H ldap://localhost -D "cn=Manager,dc=lab,dc=local" -W "cn:caseExactMatch:=Student" cn dn
+ldapsearch -x -b dc=lab,dc=local -H ldap://localhost -D "cn=Manager,dc=lab,dc=local" -W "cn:caseExactMatch:=student" cn dn
+vi user.ldif 
+ldapmodify -x -W -H ldap://localhost -D "cn=Manager,dc=lab,dc=local" -f user.ldif 
+ldapsearch -x -b dc=lab,dc=local -H ldap://localhost -D "cn=Manager,dc=lab,dc=local" -W "cn:caseExactMatch:=adam" cn dn
+ldapsearch -x -b dc=lab,dc=local -H ldap://localhost -D "cn=Manager,dc=lab,dc=local" -W "cn:caseExactMatch:=adam" 
+ldapdelete -W -D "cn=Manager,dc=lab,dc=local" "uid=adam,ou=Users,dc=lab,dc=local"
+ldapsearch -x -b dc=lab,dc=local -H ldap://localhost -D "cn=Manager,dc=lab,dc=local" -W "cn:caseExactMatch:=adam" 
+echo "authconfig --enableldap --enableldapauth --ldapserver=centos9.lab.local --ldapbasedn=dc=lab,dc=local --enablemkhomedir --update"
+history
+history | awk '$1 > 632' | cut -c 8- 
+mkdir lin2_Apr/day4
+history | awk '$1 > 632' | cut -c 8- > lin2_Apr/day4/centos9-history.txt

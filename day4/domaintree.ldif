@@ -1,0 +1,24 @@
+
+# Stworzenie nadrzędnego drzewa domeny lab.local
+#dn: dc=lab,dc=local
+#objectClass: top
+#objectClass: dcObject
+#objectclass: organization
+#o: Lab Local domain
+#dc: lab
+
+# Stworzenie roli Managera
+dn: cn=Manager,dc=lab,dc=local
+objectClass: organizationalRole
+cn: Manager
+description: "Directory Manager Role"
+
+# Stworzenie Organization Unit "Users"
+dn: ou=Users,dc=lab,dc=local
+objectClass: organizationalUnit
+ou: Users
+
+# Stworzenie Organization Unit "Groups"
+dn: ou=Groups,dc=lab,dc=local
+objectClass: organizationalUnit
+ou: Groups

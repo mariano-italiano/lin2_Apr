@@ -1,0 +1,12 @@
+# Tworzenie grupy Development w OU=Groups
+dn: cn=Development,ou=Groups,dc=lab,dc=local
+objectClass: top
+objectClass: posixGroup
+gidNumber: 12000
+
+# Tworzenie grupy Production w OU=Groups
+dn: cn=Production,ou=Groups,dc=lab,dc=local
+objectClass: top
+objectClass: posixGroup
+gidNumber: 12001
+
