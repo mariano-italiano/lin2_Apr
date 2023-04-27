@@ -134,4 +134,56 @@ vi skrypt.sh
 ./skrypt.sh
 vi skrypt.sh
 ./skrypt.sh
+ps -ef |grep -i skrypt.sh
+kill -2 3409
+tail -f /tmp/skrypt.signals
+kill -l
+kill 3409
+ps -ef |grep -i skrypt.sh
+kill -2 3445
+tail -f /tmp/skrypt.signals
+kill 3445
+kill -15 3445
+tail -f /tmp/skrypt.signals
+kill -9 3445
+systemd-analyze
+systemd-analyze blame
+journalctl
+journalctl -b
+journalctl u chronyd
+journalctl -u chronyd
+journalctl -h
+which
+which chrony
+which chronyd
+journalctl /usr/sbin/chronyd
+journalctl -u chronyd
+journalctl --since "-10min"
+journalctl --since "-2min"
+journalctl --since today
+journalctl -p err
+journalctl -f
+journalctl -o verbose /usr/sbin/chronyd
+journalctl --since today _SYSTEMD_UNIT="sshd.service"
+cd /run/log/journal/c82189cf478b4556b585ec7703a4bdce/
+pwd
+ls -la
+less system.journal
+cd
+mkdir /var/log/journal
+ls -la /var/log/journal
+systemctl restart systemd-journald
+ls -la /var/log/journal
+ls -la
+cd /var/log
+ls
+vi /etc/systemd/journald.conf
+systemctl restart systemd-journald
+ls -la journal/
+cd /run/log/journal/
+ls
+cd
+systemctl restart systemd-journald.service
+ls -la /var/log/journal/
+history
 
