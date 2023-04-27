@@ -483,5 +483,9 @@ rm /var/run/faillock/student
 less secure
 history
 history | awk '$1 > 1012' | cut -c 8- >> lin2_Apr/day3/centos9-history.txt
-cd
-history | awk '$1 > 1012' | cut -c 8- >> lin2_Apr/day3/centos9-history.txt
+dnf -y install freeipa-server freeipa-server-dns
+ipa-server-install --setup-dns
+ipa-server-install --setup-dns --skip-mem-check
+kinit admin
+klist
+ipa user-add jkowalski --first=Jan --last=Kowalski --password
