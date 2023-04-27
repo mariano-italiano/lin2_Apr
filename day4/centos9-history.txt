@@ -80,3 +80,20 @@ history
 history | awk '$1 > 632' | cut -c 8- 
 mkdir lin2_Apr/day4
 history | awk '$1 > 632' | cut -c 8- > lin2_Apr/day4/centos9-history.txt
+dnf install krb5-server
+vi /etc/krb5.conf
+vi /var/kerberos/krb5kdc/kdc.conf 
+vi /var/kerberos/krb5kdc/kadm5.acl 
+kdb5_util create -s -r LAB.LOCAL
+systemctl status kadmin
+systemctl status krb5kdc.service 
+systemctl start kadmin
+systemctl start krb5kdc.service 
+systemctl status kadmin
+systemctl start krb5kdc.service 
+systemctl status krb5kdc.service 
+cat /etc/services | grep kerberos
+systemctl status firewalld.service 
+kadmin.local
+history
+history | awk '$1 > 725' | cut -c 8- >> lin2_Apr/day4/centos9-history.txt
