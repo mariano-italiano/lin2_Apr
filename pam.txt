@@ -1,0 +1,15 @@
+dnf install authselect-compat
+
+authconfig  --enablefaillock --faillockargs="deny=3 unlock_time=60 even_deny_root" --update
+
+pam_faillock.so preauth audit deny=3 even_deny_root unlock_time=60
+
+
+
+-----------------
+
+account    required     pam_time.so
+
+/etc/security/time.conf
+
+sshd;*;student;Wk0800-1600
