@@ -95,5 +95,43 @@ systemctl status krb5kdc.service
 cat /etc/services | grep kerberos
 systemctl status firewalld.service 
 kadmin.local
-history
-history | awk '$1 > 725' | cut -c 8- >> lin2_Apr/day4/centos9-history.txt
+ulimit -SA
+ulimit -Sa
+vi sleep.sh
+chmod +x sleep.sh
+./sleep.sh &
+ps -ef | grep sleep.sh
+renice +5 3127
+ps -ef | grep sleep.sh
+ps -eo ppid,pid,ni,comm
+ps -eo ppid,pid,ni,comm | grep sleep.sh
+renice -30 3127
+ps -eo ppid,pid,ni,comm | grep sleep.sh
+nice 20 ./sleep.sh &
+ps -eo ppid,pid,ni,comm | grep sleep.sh
+nice -h
+man nice
+nice -n 20 ./sleep.sh &
+ps -eo ppid,pid,ni,comm | grep sleep.sh
+renice -19 3200
+ps -eo ppid,pid,ni,comm | grep sleep.sh
+kill -l
+ps -ef | grep bash
+kill -2 2248
+ps -ef | grep bash
+kill -19 3262
+kill -18 3262
+kill 3262
+kill -15 3262
+ps -ef | grep tty
+ps -ef | grep sshd
+kill 3254
+kill -l
+vi skrypt.sh
+chmod +x skrypt.sh
+./skrypt.sh
+vi skrypt.sh
+./skrypt.sh
+vi skrypt.sh
+./skrypt.sh
+
