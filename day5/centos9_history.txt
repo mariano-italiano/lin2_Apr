@@ -95,3 +95,56 @@ history
 history | awk '$1 > 820' | cut -c -8
 history | awk '$1 > 820' | cut -c 8-
 history | awk '$1 > 820' | cut -c 8- > lin2_Apr/day5/centos9_history.txt
+mkdir /devops
+groupadd -g 2000 devops
+chgrp devops /devops/
+chmod 2770 /devops/
+vi /etc/exports
+exportfs -rav
+mkdir /devops
+groupadd -g 2000 devops
+chgrp devops /devops/
+chmod 2770 /devops/
+vi /etc/exports
+exportfs -rav
+history | awk '$1 > 820' | cut -c 8-
+vi lin2_Apr/day5/centos9_history.txt
+dnf install samba samba-common samba-client
+systemctl enable --now smb
+systemctl status smb
+id devops
+cat /etc/group | grep dev
+useradd alicja
+useradd linda
+usermod -aG devops alicja
+id alicja
+id linda
+vi /etc/exports
+exportfs -rav
+ls -la /devops/
+chown linda /devops
+ls -la
+ls -la /
+mkdir /smb-public
+chown student:student /smb-public/
+ls -la /
+vi /etc/samba/smb.conf
+testparm
+systemctl restart smb
+smbpasswd linda
+smbpasswd -a linda
+smbpasswd -a alicja
+smbpasswd -a student
+smbstatus
+vi /etc/samba/smb.conf
+systemctl restart smb
+vi /etc/samba/smb.conf
+smbstatus
+vi /etc/samba/smb.conf
+smbstatus
+cd /var/log/
+ls -la
+cd samba/
+ls -la
+less log.smbd
+

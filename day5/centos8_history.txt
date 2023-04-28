@@ -65,4 +65,28 @@ df -h
 mount 
 klist -k
 history
-history | awk '$1 > 817' | cut -c 8- > centos8_history.txt
+mkdir /samba
+mount //centos9/devops /samba/
+mount -o username=alicja //centos9/devops /samba/
+df -h
+cd /samba/
+ls -la
+rm New\ folder/
+rm -rf  New\ folder/
+cd
+umount /samba
+mount -o username=linda //centos9/devops /samba/
+cd /samba/
+ls -la
+rm *.txt
+ls
+vi /etc/fstab
+vi /root/smb_linda
+chmod 600 /root/smb_linda
+cd
+df -h
+umount /samba
+df -h
+mount -a
+df -h
+
