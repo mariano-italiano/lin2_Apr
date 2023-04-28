@@ -147,4 +147,243 @@ ls -la
 cd samba/
 ls -la
 less log.smbd
+mkdir /devops
+groupadd -g 2000 devops
+chgrp devops /devops/
+chmod 2770 /devops/
+vi /etc/exports
+exportfs -rav
+history | awk '$1 > 820' | cut -c 8-
+vi lin2_Apr/day5/centos9_history.txt
+dnf install samba samba-common samba-client
+systemctl enable --now smb
+systemctl status smb
+id devops
+cat /etc/group | grep dev
+useradd alicja
+useradd linda
+usermod -aG devops alicja
+id alicja
+id linda
+vi /etc/exports
+exportfs -rav
+ls -la /devops/
+chown linda /devops
+ls -la
+ls -la /
+mkdir /smb-public
+chown student:student /smb-public/
+ls -la /
+vi /etc/samba/smb.conf
+testparm
+systemctl restart smb
+smbpasswd linda
+smbpasswd -a linda
+smbpasswd -a alicja
+smbpasswd -a student
+smbstatus
+vi /etc/samba/smb.conf
+systemctl restart smb
+vi /etc/samba/smb.conf
+smbstatus
+vi /etc/samba/smb.conf
+smbstatus
+cd /var/log/
+ls -la
+cd samba/
+ls -la
+less log.smbd
+less log.rpcd_winreg
+cd
+history | awk '$1 > 820' | cut -c 8-
+vi lin2_Apr/day5/centos9_history.txt
+vi lin2_Apr/day5/centos8_history.txt
+cd lin2_Apr/;git status
+git add .
+git commit -m "Add day 5 files"
+git push
+cd
+ssh localadmin@98.71.139.36
+vi .ssh/known_hosts
+ssh localadmin@98.71.139.36
+getenforce
+vi /etc/selinux/config
+restart
+reboot
+getenforce
+ls -laZ
+ps -Zef
+ps -Zef | grep sshd
+sestatus
+dnf install policycoreutils-python policycoreutils-devel setroubleshoot-server
+dnf install policycoreutils-* policycoreutils-devel setroubleshoot-server
+dnf provides \*sealert
+dnf install setroubleshoot-server
+semanage -h
+semanage fcontext -h
+semanage fcontext -l
+semanage port -l
+semanage port -l | grep ssh
+semanage port -l | grep nfs
+semanage port -l | grep ntp
+semanage port -l | grep samba
+semanage port -l | grep smb
+getsebool -a
+getsebool -a | grep nfs
+getsebool -a | grep ssh
+vi /etc/ssh/sshd_config
+systemctl status sshd
+systemctl restart sshd
+systemctl status sshd
+less /var/log/messages
+sealert -l e4026847-265d-4ad1-a977-a8cb9df99d44
+semanage port -a -t ssh_port_t -p tcp 2222
+semanage port -l | grep ssh
+systemctl restart sshd
+systemctl status sshd
+dnf install mariadb-server -y
+mkdir /mariadb
+chown mysql:mysql /mariadb/
+systemctl enable --now mariadb
+vi /etc/my.cnf.d/mariadb-server.cnf
+systemctl restart mariadb
+grep sealert /var/log/messages
+sealert -l 437bcba9-adee-4c12-b15d-dc3175229b25
+less sealert -l 4fa24f31-2e65-45bc-b18b-7ce1bf6eb27b
+sealert -l 4fa24f31-2e65-45bc-b18b-7ce1bf6eb27b | more
+find / -name mariadb
+find / -name mysql
+ls -laZ /var/lib/mysql
+semanage fcontext -a -t  mysqld_db_t "/mariadb(/.*)?"
+restorecon -Rv /mariadb/
+systemctl restart mariadb.service
+systemctl status sshd
+systemctl status mariadb
+ifconfig
+ip addr show
+ip a a 172.16.0.90/24 dev ens33
+ip a s
+ping 172.16.0.90
+ifconfig
+ip a s
+ip addr del 172.16.0.90
+ip addr del 172.16.0.90 dev ens33
+ip addr del 172.16.0.90/32 dev ens33
+ip a s
+route -n
+ip route add 172.16.0.0/16 via 192.168.1.1
+route -n
+nmcli connection down ens33 ; nmcli connection up ens33
+route -n
+vi /etc/resolv.conf
+nmcli connection down ens33 ; nmcli connection up ens33
+vi /etc/resolv.conf
+systemctl restart NetworkManager
+vi /etc/resolv.conf
+nmcli
+nmcli connection show
+nmcli device show
+nmcli device status
+nmcli connection add con-name dmz ifname ens33 type ethernet ipv4.addresses 192.168.1.190 gw4 192.168.1.1
+nmcli connection show
+ip a
+nmcli device status
+nmcli connection modify
+nmcli connection modify dmz
+nmcli connection modify dmz ifname ens37
+nmcli device status
+ip a s
+nmcli connection show ens37
+nmcli connection show e
+nmcli connection show
+nmcli connection show dmz
+q
+nmcli connection modify dmz ipv4.method static
+nmcli connection down dmz ; nmcli connection up dmz
+ip a s
+nmcli connection show
+nmcli c s
+nmcli c e dmz
+history
+ls -la
+cat .nmcli-history
+nmtui-edit
+nmcli connection show
+nmtui-edit
+nmcli connection show dmz
+nmcli connection show internet
+nmtui-edit
+nmcli connection edit internet
+systemctl status firewalld
+systemctl start firewalld.service
+firewall-cmd
+firewall-cmd --list-all
+firewall-cmd --state
+firewall-cmd --get-default-zone
+firewall-cmd --get-zone
+firewall-cmd --get-zones
+firewall-cmd --zone=work --list-all
+firewall-cmd --zone=external --list-all
+cd /etc/firewalld/services/
+ls -la
+cd /usr/lib/firewalld/services/
+ls -la
+vi radius.xml
+firewall-cmd --info-service=wsman
+firewall-cmd --info-service=radius
+firewall-cmd --new-service=myservice --set-description="My service"
+firewall-cmd --new-service=myservice --set-description="My service" --permanent
+firewall-cmd --info-service=myservice
+firewall-cmd --reload
+firewall-cmd --info-service=myservice
+firewall-cmd --permanent --service=myservice --set-short="Short my service description"
+firewall-cmd --permanent --service=myservice --add-port=2222/tcp
+firewall-cmd --permanent --service=myservice --add-source=192.168.1.40
+firewall-cmd --permanent --service=myservice --add-source=192.168.1.40/32
+firewall-cmd --permanent --service=myservice --add-source=
+firewall-cmd --permanent --service=myservice --add-source=?
+firewall-cmd --permanent --service=myservice --add-source= -h
+firewall-cmd --permanent --service=myservice -h
+firewall-cmd --permanent --service=myservice ---help
+firewall-cmd --permanent --service=myservice --help
+firewall-cmd --permanent --service=myservice
+firewall-cmd --permanent --service=myservice --add-service=nfs
+firewall-cmd --permanent --service=myservice --add-protocol=icmp
+firewall-cmd --reload
+firewall-cmd --info-service=myservice
+firewall-cmd --permanent --service=myservice --set-destination=ipv4:192.168.1.40
+firew
+firewall-cmd --reload
+firewall-cmd --info-service=myservice
+pwd
+cd /etc/firewalld/services/
+ls -la
+cp -rp myservice.xml myservice2.xml
+vi myservice2.xml
+firewall-cmd --permanent --new-service-from-file=myservice2.xml
+vi myservice2.xml
+vi /usr/lib/firewalld/services/ssh.xml
+vi myservice2.xml
+mv myservice2.xml testservice.xml
+firewall-cmd --permanent --new-service-from-file=testservice.xml
+firewall-cmd --permanent --new-service-from-file=testservice.xml --name=testservice
+firewall-cmd --permanent --new-service-from-file=testservice.xml --name=test123
+firewall-cmd --info-service=test123
+firewall-cmd --reload
+firewall-cmd --info-service=test123
+firewall-cmd --new-zone szkolenie
+firewall-cmd --new-zone szkolenie --permanent
+firewall-cmd --reload
+firewall-cmd --get-zone
+firewall-cmd --get-zones
+firewall-cmd --zone=szkolenie --add-service=test123 --permanent
+firewall-cmd --zone=szkolenie --add-service=nfs
+firewall-cmd --zone=szkolenie --add-service=nfs --permanent
+firewall-cmd --zone=szkolenie --add-service=samba --permanent
+firewall-cmd --zone=szkolenie --add-port=123/udp --permanent
+firewall-cmd --reload
+firewall-cmd --zone=szkolenie --list-all
+firewall-cmd --zone=szkolenie --remove-service=samba --permanent
+firewall-cmd --reload
+firewall-cmd --zone=szkolenie --list-all
 

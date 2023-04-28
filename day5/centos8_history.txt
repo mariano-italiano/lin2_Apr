@@ -89,4 +89,30 @@ umount /samba
 df -h
 mount -a
 df -h
+dnf install mariadb
+mkdir /mariadb
+vi /etc/my.cnf
+cd /etc/my.cnf.d/
+ls
+cd
+dnf install mariadb-server
+dnf provides \*mysql
+vi /etc/my.cnf.d/mariadb-server.cnf
+systemctl start mariadb
+systemctl status mariadb
+chown mysql:mysql /mariadb/
+systemctl restart mariadb
+systemctl status mariadb
+less /var/log/mariadb/mariadb.log
+less /var/log/messages
+dnf install setroubleshoot-server
+systemctl restart mariadb
+systemctl status mariadb
+less /var/log/messages
+less /var/log/audit/audit.log
+less /var/log/secure
+vi /etc/my.cnf.d/mariadb-server.cnf
+history
+history | awk '$1 > 972' | cut -c 8-
+
 
