@@ -1,0 +1,6 @@
+/nfs-share/Dev	*(rw)
+/nfs-share/Prod 192.168.1.82(ro,sync)
+
+/nfs-secure 	*(rw,sec=krb5:krb5i:krb5p)
+
+

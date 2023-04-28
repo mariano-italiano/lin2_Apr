@@ -1,0 +1,3 @@
+
+Dev	-fstype=nfs4 centos9:/nfs-share/Dev 
+Prod	-fstype=nfs4 centos9:/nfs-share/Prod 
