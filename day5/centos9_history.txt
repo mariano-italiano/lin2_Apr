@@ -1,0 +1,97 @@
+vi /etc/logrotate.conf 
+vi /etc/logrotate.d/
+vi /etc/logrotate.conf 
+vi /etc/ssh/sshd_config
+ls -la /var/log
+vi /etc/ssh/sshd_config
+cd /etc/rsyslog.d/
+ls -la
+vi sshd.conf
+systemctl restart sshd
+systemctl restart rsyslog
+cd /var/log
+ls -la
+less sshd.log
+ls -lah sshd.log 
+vi /etc/logrotate.d/sshd
+vi /etc/logrotate.d/httpd 
+vi /etc/logrotate.d/sshd
+vi /etc/logrotate.d/samba 
+logrotate -d /etc/logrotate.d/sshd
+man logrotate
+vi /etc/logrotate.d/sshd
+logrotate -d /etc/logrotate.d/sshd
+logrotate -f /etc/logrotate.d/sshd
+ls -la
+less sshd.log
+ls -lah sshd*
+vi /etc/rsyslog.conf 
+systemctl restart rsyslog.service 
+systemctl restart chronyd
+cd
+mkdir lin2_Apr/day5
+cp -rp /etc/rsyslog.conf lin2_Apr/day5/rsyslog_client.conf
+cp -rp /etc/logrotate.d/sshd lin2_Apr/day5/logrotate_sshd
+git status
+cd lin2_Apr/
+git status
+git add status
+git add .
+git commit -m "Adding day 5 files"
+git push
+cd
+mkdir -p /nfs-share/{Prod,Dev}
+mkdir /a/b/c
+mkdir -p /a/b/c
+cd a
+cd /a/b/c/
+pwd
+cd .
+cd ..
+ls -la
+man mkdir
+rmdir /a/b/c
+rmdir /a/b/
+rmdir /a/
+cd
+ls
+cd /nfs-share/
+ls -la
+cd ..
+cd
+chgrp student -R /nfs-share
+ls -la /nfs-share
+chmod 2770 /nfs-share/ -R
+ls -la /nfs-share
+dnf install nfs-utils -y
+systemctl enable --now rpcbind nfs-server
+systemctl status nfs-server
+vi /etc/nfs.conf 
+vi /etc/exports
+exportfs -h
+man exportfs 
+exportfs -rav
+showmount -e localhost
+id student
+vi /etc/exports
+exportfs -rav
+vi /etc/exports
+exportfs -rav
+vi /etc/exports
+kinit admin
+klist
+ipa-getkeytab -p nfs/centos9.lab.local@LAB.LOCAL -k /etc/krb5.keytab 
+klist -k
+vi /etc/exports
+mkdir /nfs-secure
+chmod 777 /nfs-secure
+systemctl restart nfs-server
+exportfs -rav
+vi /etc/exports
+exportfs -rav
+vi /etc/exports
+exportfs -rav
+history
+history | awk '$1 > 820' | cut -c -8
+history | awk '$1 > 820' | cut -c 8-
+history | awk '$1 > 820' | cut -c 8- > lin2_Apr/day5/centos9_history.txt

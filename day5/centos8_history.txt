@@ -1,0 +1,68 @@
+dnf install rsyslog
+vi /etc/rsyslog.conf 
+ls -la /var/log
+vi /etc/rsyslog.d/00-filter-remote-logs.conf
+ip a
+systemctl restart rsyslog.service
+watch -n 1 ls -la
+watch -n 1 ls -la /var/log
+less /var/log/centos9
+cd /var/log/centos9
+ls -la
+less -la
+less chronyd.log
+less systemd.log
+scp -rp /etc/rsyslog.d/00-filter-remote-logs.conf root@192.168.1.90:/root/lin2_Apr/day5/
+scp -rp /etc/rsyslog.conf root@192.168.1.90:/root/lin2_Apr/day5/rsyslog_server.conf
+cd
+dnf install nfs-utils
+showmount -e centos9
+mkdir /nfs
+mount 192.168.1.82:/nfs-share/Prod /nfs
+mount centos9:/nfs-share/Prod /nfs
+df -hT
+cd /nfs
+umount /nfs
+mount centos9:/nfs-share/Dev /nfs
+cd /nfs
+mount 
+su - student
+umount /nfs
+mount centos9:/nfs-share/Dev /nfs
+cd /nfs
+touch plik1
+ls -la plik1
+cd 
+umount /nfs 
+df -h
+cd /nfs
+df -h
+cd ..
+cd
+dnf install autofs
+mkdir /nfs/{Prod,Dev}
+vi /etc/auto.master
+vi /etc/auto.misc 
+vi /etc/auto.smb 
+vi /etc/auto.net 
+vi /etc/auto.nfs
+vi /etc/auto.misc 
+vi /etc/auto.nfs
+systemctl enable --now autofs
+systemctl restart nfs-server
+df -h
+cd /nfs/Prod
+df -h
+su - student
+df -h
+mkdir /secure-nfs
+klist
+kinit admin
+klist
+klist -k
+mount -o sec=krb5 centos9:/nfs-secure /secure-nfs/
+df -h
+mount 
+klist -k
+history
+history | awk '$1 > 817' | cut -c 8- > centos8_history.txt
